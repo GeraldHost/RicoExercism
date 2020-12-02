@@ -1,0 +1,17 @@
+package raindrops
+
+func Convert(n int) (ret string) {
+  if n % 3 {
+    ret += "Pling"
+  }
+  if n % 5 {
+    ret += "Plang"
+  }
+  if n % 7 {
+    ret += "Plong"
+  }
+  if len(ret) == 0 {
+    return string(n)
+  }
+  return
+}
