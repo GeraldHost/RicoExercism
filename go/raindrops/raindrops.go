@@ -2,16 +2,19 @@ package raindrops
 
 import "strconv"
 
+var translation = [3][2]interface{}{
+  { 3, "Pling" },
+  { 5, "Plang" },
+  { 7, "Plong" },
+}
+
 func Convert(n int) (ret string) {
-  if n % 3 == 0 {
-    ret += "Pling"
+  for _, v := range translation {
+    if n % v[0].(int) == 0 {
+      ret += v[1].(string)
+    }
   }
-  if n % 5 == 0 {
-    ret += "Plang"
-  }
-  if n % 7 == 0 {
-    ret += "Plong"
-  }
+
   if len(ret) == 0 {
     ret = strconv.Itoa(n)
   }
